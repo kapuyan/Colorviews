@@ -1,0 +1,2 @@
+rootProject.name='colorview'
+include ':app'
