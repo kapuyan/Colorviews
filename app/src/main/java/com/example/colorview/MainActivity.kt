@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.TextView
+import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -18,6 +19,9 @@ class MainActivity : AppCompatActivity() {
         when (view.id) {
 
             // Boxes using Color class colors for the background
+            R.id.red_button -> box_three_text.setBackgroundResource(R.color.my_red)
+            R.id.yellow_button -> box_four_text.setBackgroundResource(R.color.my_yellow)
+            R.id.green_button -> box_five_text.setBackgroundResource(R.color.my_green)
             R.id.box_one_text -> view.setBackgroundColor(Color.DKGRAY)
             R.id.box_two_text -> view.setBackgroundColor(Color.GRAY)
             R.id.box_three_text -> view.setBackgroundColor(Color.BLUE)
@@ -41,9 +45,13 @@ class MainActivity : AppCompatActivity() {
 
         val rootConstraintLayout = findViewById<View>(R.id.constraint_layout)
 
+
+        val redButton = findViewById<TextView>(R.id.red_button)
+        val greenButton = findViewById<TextView>(R.id.green_button)
+        val yellowButton = findViewById<TextView>(R.id.yellow_button)
         val clickableViews: List<View> =
             listOf(boxOneText, boxTwoText, boxThreeText,
-                boxFourText, boxFiveText, rootConstraintLayout)
+                boxFourText, boxFiveText, rootConstraintLayout, redButton, greenButton, yellowButton)
 
         for (item in clickableViews) {
             item.setOnClickListener { makeColored(it) }
